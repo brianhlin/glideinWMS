@@ -3,4 +3,4 @@ before_install:
 
 script:
 - cd ..
-- glideinwms/build/jenkins/run_unittests.sh
+- glideinwms/build/jenkins/run_unittests.sh -a -c
