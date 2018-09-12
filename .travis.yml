@@ -1,0 +1,6 @@
+before_install:
+  - sudo apt-get update
+
+script:
+- cd ..
+- glideinwms/build/jenkins/run_unittests.sh
