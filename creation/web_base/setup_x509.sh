@@ -387,9 +387,9 @@ refresh_proxy && exit 0
 #
 config_idtoken
 
-add_config_line TRUST_DOMAIN "$TRUST_DOMAIN"
-add_config_line GLIDEIN_CONDOR_TOKEN "$GLIDEIN_CONDOR_TOKEN"
-add_config_line GLIDEIN_CONDOR_TOKEN_ORIG "$GLIDEIN_CONDOR_TOKEN_ORIG"
+add_config_line_safe TRUST_DOMAIN "$TRUST_DOMAIN"
+add_config_line_safe GLIDEIN_CONDOR_TOKEN "$GLIDEIN_CONDOR_TOKEN"
+add_config_line_safe GLIDEIN_CONDOR_TOKEN_ORIG "$GLIDEIN_CONDOR_TOKEN_ORIG"
 
 # Assume following functions exit on error
 check_x509_certs
@@ -403,10 +403,10 @@ copy_x509_proxy
 get_x509_expiration
 X509_EXPIRE="$RETVAL"
 
-add_config_line X509_CERT_DIR   "$X509_CERT_DIR"
-add_config_line X509_USER_PROXY "$X509_USER_PROXY"
-add_config_line X509_USER_PROXY_ORIG "$X509_USER_PROXY_ORIG"
-add_config_line X509_EXPIRE  "$X509_EXPIRE"
+add_config_line_safe X509_CERT_DIR   "$X509_CERT_DIR"
+add_config_line_safe X509_USER_PROXY "$X509_USER_PROXY"
+add_config_line_safe X509_USER_PROXY_ORIG "$X509_USER_PROXY_ORIG"
+add_config_line_safe X509_EXPIRE  "$X509_EXPIRE"
 
 
 "$error_gen" -ok "setup_x509.sh" "proxy" "$X509_USER_PROXY" "cert_dir" "$X509_CERT_DIR"
